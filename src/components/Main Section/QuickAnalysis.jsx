@@ -8,10 +8,16 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const QuickAnalysis = () => {
   const { datas } = useContext(DataContext);
-  // const data1 = ctx.datas;
   const data = {
     labels: [],
-    options: { cutout: 140 },
+    options: {
+      cutout: 140,
+      plugins: {
+        tooltip: {
+          enabled: false,
+        },
+      },
+    },
 
     datasets: [
       {
@@ -25,7 +31,6 @@ const QuickAnalysis = () => {
       },
     ],
   };
-  const options = {};
 
   const textCenter = {
     id: "textCenter",
@@ -45,15 +50,6 @@ const QuickAnalysis = () => {
         imageSize
       );
       ctx.restore();
-      // ctx.font = "30px";
-      // ctx.fillStyle = "red";
-      // ctx.textAlign = "center";
-      // ctx.textBaseline = "middle";
-      // ctx.fillText(
-      //   pieChart,
-      //   chart.getDatasetMeta(0).data[0].x,
-      //   chart.getDatasetMeta(0).data[0].y
-      // );
     },
   };
   return (
@@ -80,14 +76,13 @@ const QuickAnalysis = () => {
         </div>
       </div>
       <div className="flex h-center v-center">
-        <div style={{ width: `55%` }}>
+        <div style={{ width: "55%" }}>
           <Doughnut
             data={data}
-            options={options}
+            options={{ cutout: 70 }}
             plugins={[textCenter]}
           ></Doughnut>
         </div>
-        {/* <img src={pieChart} alt="Pie chart" className="pie-chart" /> */}
       </div>
     </span>
   );

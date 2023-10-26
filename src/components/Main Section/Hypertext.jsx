@@ -16,14 +16,14 @@ const Hypertext = () => {
     if (ctx.datas) {
       setInputValues({
         // ...prevInputValues,
-        rank: ctx.datas.rank,
-        percentile: ctx.datas.percentile,
-        currentScore: ctx.datas.currentScore,
+        rank: ctx.datas.rank?.toString(),
+        percentile: ctx.datas.percentile?.toString(),
+        currentScore: ctx.datas.currentScore?.toString(),
         // Add other properties from ctx.datas here as needed
       });
     }
-    // console.log(`This is something ${inputValues.rank}`);
-  }, []);
+    // console.log(This is something ${inputValues.rank});
+  }, [ctx]);
 
   const handleInputChange = (e) => {
     // Update the inputValues state based on input changes
