@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import trophy from "../../assets/quickStats/trophy.svg";
 import tick from "../../assets/quickStats/tick.svg";
 import note from "../../assets/quickStats/note.svg";
+import { DataContext } from "../../store/data";
 
 const QuickStats = () => {
+  const { datas } = useContext(DataContext);
+  // const rankNum = datas.rank;
+  const num = datas.rank;
+  const options = {
+    maximumFractionDigits: 2,
+  };
+  const formattedNumber = Intl.NumberFormat("en-US", options).format(num);
+  console.log(formattedNumber);
+
   return (
     <span className="basic-border p-30 m-tb-15 m-r-30 quick-stats-parent">
       <div className="f-16 primary-color bold letter-space-secondary quick-stats-head">
@@ -20,7 +30,7 @@ const QuickStats = () => {
           </div>
           <div className="flex flex-col">
             <div className="f-22 bold letter-space-primary primary-color">
-              12,890
+              {formattedNumber}
             </div>
             <div className="f-12 tertiary-color letter-space-four">
               YOUR RANK
@@ -34,7 +44,7 @@ const QuickStats = () => {
           </div>
           <div className="flex flex-col">
             <div className="f-22 bold letter-space-primary primary-color">
-              37%
+              {datas.percentile}%
             </div>
             <div className="f-12 tertiary-color letter-space-four">
               PERCENTILE
@@ -48,7 +58,10 @@ const QuickStats = () => {
           </div>
           <div className="flex flex-col">
             <div className="f-22 bold letter-space-primary primary-color">
-              07 / 15
+              {datas.currentScore <= 9
+                ? `0${datas.currentScore}`
+                : datas.currentScore}{" "}
+              / 15
             </div>
             <div className="f-12 tertiary-color letter-space-four">
               CORRECT ANSWERS

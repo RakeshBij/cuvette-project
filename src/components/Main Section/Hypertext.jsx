@@ -1,13 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import logo from "../../assets/html.svg";
+import { DataContext } from "../../store/data";
 
 const Hypertext = () => {
+  const ctx = useContext(DataContext);
+
   const [showModal, setShowModal] = useState(false);
   const [inputValues, setInputValues] = useState({
     rank: 12890,
-    percentile: 7,
-    currentScore: 37,
+    percentile: 37,
+    currentScore: 7,
   });
+
+  useEffect(() => {
+    if (ctx.datas) {
+      setInputValues({
+        // ...prevInputValues,
+        rank: ctx.datas.rank,
+        percentile: ctx.datas.percentile,
+        currentScore: ctx.datas.currentScore,
+        // Add other properties from ctx.datas here as needed
+      });
+    }
+    // console.log(`This is something ${inputValues.rank}`);
+  }, []);
 
   const handleInputChange = (e) => {
     // Update the inputValues state based on input changes
@@ -24,6 +40,7 @@ const Hypertext = () => {
   const handleSave = () => {
     // Log the input values to the console
     console.log("Input Values:", inputValues);
+    ctx.submitHandler(inputValues);
     // Close the modal
     closeModal();
   };

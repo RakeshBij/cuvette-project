@@ -326,7 +326,16 @@ body {
   margin-bottom: 30px;
 }
 
+.graph-icon {
+  width: 40px;
+  height: 40px;
+}
+
 /* Sylabus wise Analysis */
+
+.SylabuswiseAnalysis-parnet {
+  width: 386px;
+}
 
 .sylabus-wise-analysis {
   gap: 44px;
@@ -354,6 +363,93 @@ body {
 
 .sylabus-wise-analysis-score-4 {
   color: var(--green);
+}
+
+.bargraph-parent {
+}
+
+.bargraph-parent > div {
+  content: "";
+  height: 10px;
+  border-radius: 10px;
+}
+
+.back-bar {
+  width: 200px;
+  position: absolute;
+  opacity: 0.1;
+}
+
+.front-bar {
+  position: relative;
+  width: 0;
+}
+
+.back-bar-1,
+.front-bar-1 {
+  background-color: var(--light-blue);
+}
+
+.back-bar-2,
+.front-bar-2 {
+  background-color: var(--orange);
+}
+
+.back-bar-3,
+.front-bar-3 {
+  background-color: var(--red);
+}
+
+.back-bar-4,
+.front-bar-4 {
+  background-color: var(--green);
+}
+
+/* .back-bar-1,
+.back-bar-2,
+.back-bar-3,
+.back-bar-4 {
+  opacity: 0.1;
+} */
+
+.front-bar-1 {
+  animation: grow1 2s forwards;
+}
+
+.front-bar-2 {
+  animation: grow2 2s forwards;
+}
+
+.front-bar-3 {
+  animation: grow3 2s forwards;
+}
+
+.front-bar-4 {
+  animation: grow4 2s forwards;
+}
+
+@keyframes grow1 {
+  to {
+    width: 160px; /* Grow to 100px */
+  }
+}
+
+@keyframes grow2 {
+  to {
+    width: 120px; /* Grow to 100px */
+  }
+}
+
+@keyframes grow3 {
+  to {
+    width: 48px; /* Grow to 100px */
+  }
+}
+
+@keyframes grow4 {
+  to {
+    width: 192px; /* Grow to 100px */
+  }
 }
 
 /* Question analysis */
@@ -497,7 +593,7 @@ input {
 /* Styles for screens between 1200px and 1462px */
 @media (min-width: 1200px) and (max-width: 1462px) {
   /* Add your styles for screens in this range */
-  .main-body {
+  /* .main-body {
     flex-direction: column;
   }
 
@@ -508,20 +604,20 @@ input {
   .modal-content {
     width: auto;
     height: auto;
-  }
+  } */
 
-  .modal-head-container {
+  /* .modal-head-container {
     margin-bottom: 20px;
-  }
+  } */
 
-  input {
-    /* width: auto; */
+  /* input {
+
     height: 20px;
-  }
+  } */
 
-  .modal-content-container {
+  /* .modal-content-container {
     gap: 30px;
-  }
+  } */
 }
 
 /* Styles for screens between 992px and 1199px (commonly tablets) */
