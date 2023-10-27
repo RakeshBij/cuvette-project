@@ -102,7 +102,7 @@ const ComparisonGraph = () => {
               },
             },
             y: {
-              display: true,
+              display: false,
               ticks: {
                 min: 0,
                 max: 100,

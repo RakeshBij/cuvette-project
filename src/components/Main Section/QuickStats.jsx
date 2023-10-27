@@ -12,7 +12,6 @@ const QuickStats = () => {
     maximumFractionDigits: 2,
   };
   const formattedNumber = Intl.NumberFormat("en-US", options).format(num);
-  console.log(formattedNumber);
 
   return (
     <span className="basic-border p-30 m-tb-15 m-r-30 quick-stats-parent">

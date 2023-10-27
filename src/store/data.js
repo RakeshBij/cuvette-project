@@ -15,7 +15,7 @@ const DataProvider = ({ children }) => {
 
   useEffect(() => {
     const stored = localStorage.getItem("stored");
-    console.log(stored);
+
     const storedObj = JSON.parse(stored);
     if (storedObj) {
       setDatas(storedObj);
@@ -33,7 +33,6 @@ const DataProvider = ({ children }) => {
       localStorage.setItem("stored", JSON.stringify(payload));
       setDatas({ ...payload });
     }
-    console.log(payload);
   };
 
   return (

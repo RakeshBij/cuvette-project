@@ -2,7 +2,6 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 
 const Chart = () => {
-  // Define the data points for the chart following the path
   const chartData = {
     labels: [
       "Point 1",
